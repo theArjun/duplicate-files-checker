@@ -1,6 +1,10 @@
+
 # Duplicate Files Checker
 
 Checks the duplicates file in the system.
+
+### Architecture
+![Architecture](https://i.ibb.co/F6FLp08/checker.png)
 
 ### Inspiration and Approach Used
 
@@ -11,3 +15,28 @@ In a large collection of files there may be more than one copy of the same song,
 2) Adapt the previous program to look for files that have duplicate content using a hashing or checksum algorithm. 
 
 You should create a dictionary where the checksum is the key and the file name is the value. When you compute a checksum and it is already in the dictionary as a key, you have two files with duplicate content so print out the file in the dictionary and the file you just read.
+
+### Installation and Building
+
+The project relies on the built in package unless you need to build using `PyInstaller`. For further development, building binary binaries on your own, I'm suggesting this method.
+
+```
+git clone https://github.com/thearjun/duplicate-files-checker.git
+cd duplicate-files-checker
+pip install virtualenv
+virtualenv env
+source myenv/bin/activate
+pip install -r requirements.txt
+```
+
+For building the binaries,
+```
+pyinstaller --onefile checker/main.py
+```
+You may also move the binary file in `/usr/bin` for global access.
+```
+sudo mv dist/main /usr/bin/<any-name-you-want>
+```
+
+### Download Executable
+Click the link [here](https://github.com/theArjun/duplicate-files-checker/releases/download/v1.0/duplicateChecker).  File will automatically start downloading.
